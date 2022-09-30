@@ -1,7 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:todo_app/widget/ToDO_item.dart';
+import 'package:todo_app/widget/searchbar.dart';
 
 void main() => runApp(const MyApp());
 
@@ -34,38 +34,34 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         elevation: 0,
-        leading: const Icon(Icons.menu),
-        title: const Center(child: Text("TODO App")),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Icon(Icons.menu),
+            Icon(Icons.person),
+          ],
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              height: 48,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: const TextField(
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                      size: 20,
+            const Searchbox(),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 40, bottom: 20),
+                    child: const Text(
+                      "All ToDOs",
+                      style:
+                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
-                    prefixIconConstraints: BoxConstraints(
-                      maxHeight: 20,
-                      minWidth: 25,
-                    ),
-                    border: InputBorder.none,
-                    hintText: 'search',
-                    hintStyle: TextStyle(color: Colors.brown)),
+                  ),
+                  const ToDo(),
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),
