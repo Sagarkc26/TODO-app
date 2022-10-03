@@ -5,7 +5,7 @@ import 'package:todo_app/widget/searchbar.dart';
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
-  final todoList = ToDo.todoList();
+  final todoList = ToDoitem.todoList();
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,6 @@ class Home extends StatelessWidget {
                           TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const ToDoitem(),
-                  const ToDoitem(),
-                  const ToDoitem(),
                   const ToDoitem(),
                   const ToDoitem(),
                   const ToDoitem(),
