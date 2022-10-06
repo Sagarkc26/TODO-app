@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/widget/ToDO_item.dart';
 import 'package:todo_app/widget/searchbar.dart';
 
+import 'model/todo.dart';
+
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
@@ -37,7 +39,7 @@ class Home extends StatelessWidget {
                           TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const ToDoitem(),
+                  for (ToDo todo in ToDoitem) const ToDoitem(),
                   const ToDoitem(),
                   const ToDoitem(),
                   const ToDoitem(),
